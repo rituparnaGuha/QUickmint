@@ -1,0 +1,49 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Host an<strong> Event</strong></h1>
+    </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="container">
+    <div class="text-center width754">
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()"> 
+            <div class="row">
+                <div class="form-group custom-input-field col-md-6">
+                <input formControlName="location" type="text" class="form-control" placeholder="Location" required="required">
+            </div>
+            <div class="form-group custom-input-field col-md-6">
+                <input formControlName="slot" type="text" class="form-control" placeholder="Slots" required="required">
+            </div>
+            <div class="form-group custom-input-field col-md-12">
+                <textarea formControlName="description" rows="5" class="form-control" placeholder="Information and Details"></textarea>
+            </div>
+            <div class="form-group custom-input-field col-md-6 date-pic">
+                <input [matDatepicker]="picker" formControlName="date" type="text" class="form-control" placeholder="Date" required="required">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="form-group custom-input-field col-md-6">
+          <ngx-timepicker-field [defaultTime]="'10:11 am'" formControlName="time"></ngx-timepicker-field>
+                
+                <!-- <input formControlName="" type="text" class="form-control" placeholder="Time" required="required"> -->
+            </div>
+            <div class="form-group custom-input-field col-md-12">
+                <input formControlName="cost" type="text" class="form-control" placeholder="Cost" required="required">
+            </div>
+            <div class="form-group col-md-12">
+                <label class="radio-item">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">Agree with the <a href="#"><b>Cancellation Policy</b></a></span>
+                </label>
+            </div>
+            <div class="custom-input-field text-center col-md-12">
+                <button type="submit" class="btn btn-submit">Register</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</section>
+<!-- Body content end -->

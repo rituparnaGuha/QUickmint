@@ -1,0 +1,73 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Job <strong>List</strong></h1>
+
+        <h1>{{item}}</h1>
+    </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <!-- Nav tabs -->
+
+        <!-- Tab panes -->
+        <div >
+            <!-- <div role="tabpanel" class="tab-pane fade show active" id="PrivateJob"> -->
+                <div class="trainer-item-row">
+                    <div class="trainer-item" *ngFor="let job of privateJobList">
+                        <div class="trainer-img" style="background-image:url('assets/images/trainer-img-1.png')">
+                        </div>
+                        <div class="flex-right-box">
+                            <div class="flex-inner-bx">
+                                <div class="trainer-item-info">
+                                    <h4>{{job.job_title}}</h4>
+                                    <p>Job category: <span>{{job.category_info}}</span></p>
+                                    <p class="pin-txt m-time-icon">Job start & end time: <span>1:00AM -4:00AM </span></p>
+                                    <p class="pin-txt m-date-icon">Job Date: <span>{{setToDateStr(job.date)}}</span></p>
+                                    <p class="pin-txt m-price-icon">Price: <span class="price-bold">${{job.price}}</span></p>
+                                </div>
+                                <div class="call-acpt text-right">
+                                    <a href="javascript:void(0);" class="btn details-btn mb-2">{{getStatusText(job.job_status)}}</a>
+                                    <button href="javascript:void(0);" (click)="openDialog(job)" class="btn details-btn"><i class="fa fa-phone"></i> Call Now</button>
+                                </div>
+                            </div>
+                            <div class="spd-info-flex-bx">
+                                <h4>{{job.provider_id.UserFullName}}</h4>
+                                <p><i class="fa fa-phone" aria-hidden="true"></i> {{job.provider_id.UserPhone}}</p>
+                                <p><i class="fa fa-envelope" aria-hidden="true"></i> <span>{{job.provider_id.UserEmail}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+            <!-- <div role="tabpanel" class="tab-pane fade" id="PublicJob"> -->
+                <div class="trainer-item-row">
+                    <div class="trainer-item" *ngFor="let job of publicJobList">
+                        <div class="trainer-img" style="background-image:url('assets/images/trainer-img-2.png')">
+                        </div>
+                        <div class="flex-right-box">
+                            <div class="flex-inner-bx">
+                                <div class="trainer-item-info">
+                                    <h4>{{job.job_title}}</h4>
+                                    <p>Job category: <span>{{job.category_info}}</span></p>
+                                    <p class="pin-txt m-time-icon">Job start & end time: <span>1:00AM -4:00AM </span></p>
+                                    <p class="pin-txt m-date-icon">Job Date: <span>{{setToDateStr(job.date)}} </span></p>
+                                    <p class="pin-txt m-price-icon">Price: <span class="price-bold">${{job.price}}</span></p>
+                                </div>
+                                <a href="javascript:void(0);" class="btn details-btn">{{getStatusText(job.job_status)}}</a>
+                            </div>
+                            <div class="spd-info-flex-bx">
+                                <h4>Jimmy Doe</h4>
+                                <p><i class="fa fa-phone" aria-hidden="true"></i> +1 321 456 7890</p>
+                                <p><i class="fa fa-envelope" aria-hidden="true"></i> <span>griffin.shown@dummy.com</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>
+<!-- Body content end -->

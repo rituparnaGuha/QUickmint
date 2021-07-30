@@ -1,0 +1,71 @@
+
+<!-- Banner start -->
+<section class="inner-banner">
+
+    <div class="container">
+        <h1><strong>FAQs</strong></h1>
+    </div>
+
+</section>
+<!-- Banner end -->
+
+<section class="container" *ngIf='showFAQ==true'>
+    <div>
+        <div class="row">
+          <div class="form-group custom-input-field col-12">
+            <label>Question:</label>
+            <input
+              [(ngModel)]="question"
+              class="form-control"
+              placeholder="Add question here"
+            />
+          </div>
+          <div class="form-group custom-input-field col-12">
+            <label>Answer:</label>
+            <textarea
+              rows="5"
+              [(ngModel)]="answer"
+              class="form-control"
+              placeholder="Add Answer here"
+            ></textarea>
+          </div>
+  
+        </div>
+     
+    </div>
+  </section>
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <button class="btn details-btn mb-4 reg-new" (click)="addFAQ()">Add FAQ</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="table-responsive-md transaction-table">
+                <table class="table Service-lit-tab-det">
+                    <thead>
+                        <tr>  
+                        <th scope="col">Question</th>
+                        <th scope="col">Answer</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of FAQlist;let i=index">
+                            <td>{{item.question}}</td>
+                            <td>{{item.answer}}</td>
+                            <td class="act-td" style="text-align: center;">
+                                <!-- <span><img src="./assets/images/edit-icon.png" (click)="editFAQ(item._id)" alt=""></span> -->
+                                <span><img src="./assets/images/delete.png" (click)="deleteFAQ(item._id)" alt=""></span>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Body content end -->

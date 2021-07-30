@@ -1,0 +1,92 @@
+<!-- Banner start -->
+<section class="inner-banner">
+  <div class="container">
+    <h1>Create <strong>Job</strong></h1>
+  </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="container">
+  <div class="text-center width754">
+    <form [formGroup]="userForm">
+      <div class="row">
+        <div class="form-group custom-input-field col-md-12">
+          <input type="text" formControlName="job_title" class="form-control" placeholder="Job title"
+            required="required">
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+          <textarea rows="5" formControlName="job_description" class="form-control"
+            placeholder="Job description"></textarea>
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+            <label style="text-align: left!important;" class="col-md-12 pl-0">Address :</label>
+          <input class="form-control" value="{{mappa}}" placeholder="Address " matInput matGoogleMapsAutocomplete
+            (onGermanAddressMapped)="onGermanAddressMapped($event)"
+            (onAutocompleteSelected)="onAutocompleteSelected($event)" (onLocationSelected)="onLocationSelected($event)">
+          <!-- <textarea rows="5" formControlName="Address" class="form-control" placeholder="Address "></textarea> -->
+        </div>
+        <div #map id="map" class="for-map">
+          <!-- <img src="../../assets/img/map.png" alt=""> -->
+        </div>
+
+        <div class="form-group custom-input-field col-md-12">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Category :</label>
+          <select *ngIf="privateJob === false" formControlName="category_id" class="form-control" id="sel1"
+            (change)="getSubcategory()">
+            <!-- <option selected>Select Category</option> -->
+            <option *ngFor="let data of categorylisting; let i=index" value="{{data._id}}">{{data.name}}
+            </option>
+          </select>
+
+          <label *ngIf="privateJob === true" for="">{{this.userForm.value.category_id.name}}</label>
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Subcategory :</label>
+          <select *ngIf="privateJob === false" formControlName="subcategory_id" class="form-control" id="sel2">
+            <!-- <option selected>Select Sub Category</option> -->
+            <option *ngFor="let data of subcategorylisting; let i=index" value="{{data._id}}">{{data.name ? data.name :
+              null}}
+            </option>
+          </select>
+
+          <label *ngIf="privateJob===true" for="">{{this.userForm.value.subcategory_id.name}}</label>
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+          <div class="date-field">
+            <input type="text" formControlName="jobDate" class="form-control" placeholder="Date"
+              [matDatepicker]="picker" required="required">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+        </div>
+        <!-- <div class="form-group custom-input-field col-md-12">
+                <div class="input-group">
+                    <div class="control-fileupload">
+                        <label for="file">Choose File</label>
+                        <input type="file" id="file">
+                    </div>
+                </div>
+            </div> -->
+        <div class="form-group custom-input-field col-md-6 text-left time-field">
+          <label>From :</label>
+          <ngx-timepicker-field [defaultTime]="'10:11 am'" formControlName="open_time" timeChanged="consolee()">
+          </ngx-timepicker-field>
+        </div>
+        <div class="form-group custom-input-field col-md-6 text-left time-field">
+          <label>To :</label>
+          <ngx-timepicker-field [defaultTime]="'10:11 am'" formControlName="close_time"></ngx-timepicker-field>
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+          <input type="text" formControlName="price" class="form-control" placeholder="Cost" required="required">
+        </div>
+        <div class="form-group col-md-12">
+
+        </div>
+        <div class="custom-input-field text-center col-md-12">
+          <button type="submit" class="btn btn-submit" (click)="onSubmit()">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- Body content end -->

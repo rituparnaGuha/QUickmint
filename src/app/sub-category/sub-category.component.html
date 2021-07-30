@@ -1,0 +1,21 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1><strong>Subcategory</strong></h1>
+    </div>
+</section>
+<section class="container">
+    <div class="subcategory-item-row">
+        <div class="subcategory-item" *ngFor="let data of subcategorylisting">
+            <a (click)="getProviders(data)">
+                <img src="{{data.imageUrl}}" style="width: 100%; height: 100% " alt="">
+                <!-- <i class="icon c-icon-1"></i> -->
+                <p>{{data.name}}</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- <section>
+    <app-service-provider-list [provList]=providersList></app-service-provider-list>
+</section> -->

@@ -1,0 +1,75 @@
+.sud-btm-det.d-flex {
+    display: flex!important;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.sud-btm-det.d-flex .sud-btm-det-cont {
+    text-align: center;
+    padding: 30px;
+    background: #f2f2f2;
+    border-radius: 10px;
+    margin: 0px 10px;
+    width: calc(100% / 3.3);
+    margin-bottom: 20px;
+}
+.sud-btm-det.d-flex .sud-btm-det-cont h3{
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+.sud-btm-det.d-flex .sud-btm-det-cont p{
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #777;
+}
+.classes-btn{
+    font-size: 18px;
+    margin: 7px;
+    color: #777;
+    border:1px;
+}
+.sud-clan.d-block {
+    max-width: 700px;
+}
+.sud-btm-det-cont button.btn{
+    background: linear-gradient(180deg
+, #22A6DE 0%, #2257DE 75.52%);
+border-radius: 100px;
+line-height: 40px;
+padding: 3px 24px;
+margin-right: 16px;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+text-align: center;
+letter-spacing: 0.07em;
+text-transform: uppercase;
+color: #FFFFFF;
+border: none;
+}
+.sud-btm-det-cont button.btn:hover{
+    background: linear-gradient(
+180deg
+, #2257DE 0%, #22A6DE 75.52%);
+    color: #fff;
+}
+.d-block.star {
+    color: #22A6DE;
+    font-size: 24px;
+    margin: 4px 8px 0px 0px;
+    display: inline-block;
+}
+.d-block.star i{
+    margin-right: 10px;
+}
+  
+
+
+@media (max-width: 767px){
+#banner-video{
+    height: 300px;
+}
+.beauty_service_box img {
+    height: 200px;
+}
+}

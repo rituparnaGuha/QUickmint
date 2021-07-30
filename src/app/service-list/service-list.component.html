@@ -1,0 +1,91 @@
+
+<!-- Banner start -->
+<section class="inner-banner">
+
+    <div class="container">
+        <h1>Service <strong> List</strong></h1>
+    </div>
+
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="table-responsive-md transaction-table">
+                <table class="table Service-lit-tab-det">
+                    <thead>
+                        <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Job</th>
+                        <th scope="col">Category </th>
+                        <th scope="col">Subcategory </th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Time </th>
+                        <th scope="col" style="text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of serviceList;let i=index">
+                            <td><img class="pro" src="https://nodeserver.mydevfactory.com:4290/{{item.image}}" alt=""></td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.category_id.name}}</td>
+                            <td>{{item.sub_category_id.name}}</td>
+                            <td>{{item.Price}}</td>
+                            <td>{{item.job_start}}-{{item.job_end}}</td>
+                            <td class="act-td" style="text-align: center;">
+                                <span><img src="./assets/images/edit-icon.png" (click)="editService(item._id)" alt=""></span>
+                                <span><img src="./assets/images/delete.png" (click)="deleteService(item._id)" alt=""></span>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td><img class="pro" src="../../assets/images/beauty_service.png" alt=""></td>
+                            <td>Job Title</td>
+                            <td>Beauty </td>
+                            <td>Makeup, Massages </td>
+                            <td>10:00am - 4:00pm</td>
+                            <td class="act-td" style="text-align: center;">
+                                <span><img src="../../assets/images/edit-icon.png" alt=""></span>
+                                <span><img src="../../assets/images/delete.png" alt=""></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img class="pro" src="../../assets/images/beauty_service.png" alt=""></td>
+                            <td>Job Title</td>
+                            <td>Beauty </td>
+                            <td>Makeup, Massages </td>
+                            <td>10:00am - 4:00pm</td>
+                            <td class="act-td" style="text-align: center;">
+                                <span><img src="../../assets/images/edit-icon.png" alt=""></span>
+                                <span><img src="../../assets/images/delete.png" alt=""></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img class="pro" src="../../assets/images/beauty_service.png" alt=""></td>
+                            <td>Job Title</td>
+                            <td>Beauty </td>
+                            <td>Makeup, Massages </td>
+                            <td>10:00am - 4:00pm</td>
+                            <td class="act-td" style="text-align: center;">
+                                <span><img src="../../assets/images/edit-icon.png" alt=""></span>
+                                <span><img src="../../assets/images/delete.png" alt=""></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img class="pro" src="../../assets/images/beauty_service.png" alt=""></td>
+                            <td>Job Title</td>
+                            <td>Beauty </td>
+                            <td>Makeup, Massages </td>
+                            <td>10:00am - 4:00pm</td>
+                            <td class="act-td" style="text-align: center;">
+                                <span><img src="../../assets/images/edit-icon.png" (click)="editService()" alt=""></span>
+                                <span><img src="../../assets/images/delete.png" alt=""></span>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Body content end -->

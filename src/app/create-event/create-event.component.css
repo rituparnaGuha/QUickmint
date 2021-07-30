@@ -1,0 +1,10 @@
+.date-pic
+mat-datepicker-toggle {
+    width: 100%;
+    text-align: right;
+    justify-content: flex-end;
+    position: absolute;
+    left: 0;
+    padding-right: 13px;
+    top: 8px;
+}

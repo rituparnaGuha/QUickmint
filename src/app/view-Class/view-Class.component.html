@@ -1,0 +1,25 @@
+<div class="img-video">
+    <h4>Service List</h4>
+    <div class="sud-btm-det d-flex mt-4">
+        <div class="sud-btm-det-cont" *ngFor='let item of serviceClass;let i=index'>
+           
+            <!-- <div *ngIf="i<3" class="classes-btn"> -->
+            <h3>
+                {{item.title}}
+            </h3>
+            <p>
+                Classes for : {{item.class_for}}
+            </p>
+            <p>
+               Price: {{item.price}}
+            </p>
+            <!-- <p>
+               Start : {{item.start_tiem | date:'medium'}}
+             </p>
+             <p>
+                End : {{item.end_time | date:'medium'}}
+             </p> -->
+            
+        </div>
+    </div>
+</div>

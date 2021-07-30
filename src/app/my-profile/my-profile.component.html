@@ -1,0 +1,160 @@
+<!-- Banner start -->
+<section class="inner-banner">
+  <div class="container">
+    <h1>My <strong>Profile</strong></h1>
+  </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="container">
+  <div class="my-profile-wrap">
+    <!-- <div class="profile-img-block" style="background-image:url('assets/images/trainer-img-4.png')">
+            <i class="edit-icon"></i>
+        </div> -->
+    <div class="profile-img-block">
+      <img class="profile-img-block" *ngIf="this.imageUrl" onerror="this.src='assets/images/trainer-img-4.png';"
+        src="{{this.imageUrl}}">
+      <img class="profile-img-block" *ngIf="!this.imageUrl" src="assets/images/trainer-img-4.png">
+      <i class="edit-icon" (click)="fileInput.click()"></i>
+    </div>
+
+    <input #fileInput type="file" (change)="onFileSelected($event)" style="display:none;" />
+    <!-- </button> -->
+    <ul class="nav nav-tabs profile-nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#personal-info" role="tab" aria-selected="true">Personal
+          Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#change-password" role="tab" aria-selected="false">Change
+          Password</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#card-details" role="tab" aria-selected="false">Card
+          Details</a>
+      </li> -->
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="personal-info" role="tabpanel">
+        <form [formGroup]="userForm">
+          <div class="row">
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" formControlName="UserFullName" placeholder="Full Name"
+                required="required">
+            </div>
+            <div
+              *ngIf="fp.UserFullName.invalid && (fp.UserFullName.dirty || fp.UserFullName.touched)|| fp.UserFullName.invalid && userFormSubmitted">
+              <div class="errMessage" *ngIf="fp.UserFullName.errors.required">
+                Full Name is required.
+              </div>
+              <div class="errMessage" *ngIf="fp.UserFullName.errors.pattern">
+                Enter valid full name
+              </div>
+            </div>
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" formControlName="UserName" placeholder="User Name"
+                required="required">
+            </div>
+            <div
+              *ngIf="fp.UserName.invalid && (fp.UserName.dirty || fp.UserName.touched)|| fp.UserName.invalid && userFormSubmitted">
+              <div class="errMessage" *ngIf="fp.UserName.errors.required">
+                User name is required.
+              </div>
+              <div class="errMessage" *ngIf="fp.UserName.errors.pattern">
+                Enter valid user name.
+              </div>
+            </div>
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" formControlName="UserEmail" readonly placeholder="Email Address"
+                required="required">
+            </div>
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" formControlName="UserPhone" placeholder="Phone Number"
+                required="required">
+            </div>
+            <div
+              *ngIf="fp.UserPhone.invalid && (fp.UserPhone.dirty || fp.UserPhone.touched)|| fp.UserPhone.invalid && userFormSubmitted">
+              <div class="errMessage" *ngIf="fp.UserPhone.errors.required">
+                Mobile no is required.
+              </div>
+              <div class="errMessage" *ngIf="fp.UserPhone.errors.pattern">
+                Enter valid mobile no.
+              </div>
+            </div>
+            <div class="col-md-12 custom-input-field text-center">
+              <button type="submit" class="btn btn-submit" (click)="onSubmit()">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="change-password" role="tabpanel">
+        <div class="update-password-block">
+          <form [formGroup]="passwordForm">
+            <div class="row">
+              <div class="col-md-12 form-group custom-input-field">
+                <input type="text" formControlName="currentPassword" class="form-control" placeholder="Old Password"
+                  required="required">
+              </div>
+              <div
+                *ngIf="f.currentPassword.invalid && (f.currentPassword.dirty || f.currentPassword.touched)|| f.currentPassword.invalid && userFormSubmitted">
+                <div class="errMessage" *ngIf="f.currentPassword.errors.required">
+                  This field is required.
+                </div>
+              </div>
+              <div class="col-md-12 form-group custom-input-field">
+                <input type="text" class="form-control" placeholder="New password" formControlName="newPassword"
+                  required="required">
+              </div>
+              <div
+                *ngIf="f.newPassword.invalid && (f.newPassword.dirty || f.newPassword.touched)|| f.newPassword.invalid && userFormSubmitted">
+                <div class="errMessage" *ngIf="f.newPassword.errors.required">
+                  This field is required.
+                </div>
+              </div>
+              <div class="col-md-12 form-group custom-input-field">
+                <input type="text" class="form-control" placeholder="Confirm New password"
+                  formControlName="confirmPassword" required="required">
+              </div>
+              <div
+                *ngIf="f.confirmPassword.invalid && (f.confirmPassword.dirty || f.confirmPassword.touched)|| f.confirmPassword.invalid && userFormSubmitted">
+                <div class="errMessage" *ngIf="f.confirmPassword.errors.required">
+                  This field is required.
+                </div>
+                <!-- <div class="errMessage" *ngIf="f.confirmPassword.dirty || f.newPassword.touched">
+          This field is required.
+        </div> -->
+              </div>
+
+
+              <div class="col-md-12 custom-input-field text-center">
+                <button type="submit" (click)="passwordFormOnSubmit()" class="btn btn-submit">Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="card-details" role="tabpanel">
+        <form>
+          <div class="row">
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" placeholder="Name on Card" required="required">
+            </div>
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" placeholder="Card Number" required="required">
+            </div>
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" placeholder="Expiry Month" required="required">
+            </div>
+            <div class="col-md-6 form-group custom-input-field">
+              <input type="text" class="form-control" placeholder="Expiry Year" required="required">
+            </div>
+            <div class="col-md-12 custom-input-field text-center">
+              <button type="submit" class="btn btn-submit">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Body content end -->

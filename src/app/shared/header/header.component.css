@@ -1,0 +1,52 @@
+.search-dropdown {
+    position: absolute;
+    will-change: transform;
+    top: 0px;
+    left: 0px;
+    display: block;
+    right: auto;
+    bottom: auto;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    z-index: 1000;
+    float: left;
+    padding: .5rem 0;
+}
+.for-location {
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+}
+.for-location input{
+    width: 100%;
+    border: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #8C8C8C;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url(../../../assets/images/location-icon.png);
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    background-size: 16px;
+}
+@media(max-width:1200px) and (min-width:989px){
+    .category_search {
+        width: 360px;
+    }
+    .logo_section {
+        max-width: 130px;
+    }
+}

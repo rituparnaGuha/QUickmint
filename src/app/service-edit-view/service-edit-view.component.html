@@ -1,0 +1,71 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+      <h1>Edit <strong>Service</strong></h1>
+    </div>
+  </section>
+  <!-- Banner end -->
+  <!-- Body content start -->
+  <section class="container">
+    <div class="text-center width754">
+      <form >
+        <div class="row">
+
+          <div class="form-group custom-input-field col-md-12">
+            <input type="text"  class="form-control" placeholder="Job title"
+              required="required" value="RRR">
+          </div>
+        <div class="form-group custom-input-field col-md-12">
+          <textarea rows="5"  class="form-control"
+            placeholder="Job description" type="text">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Category :</label>
+          <select class="form-control">
+            <option  value="Beauty">Beauty 
+            </option>
+
+          </select>
+        </div>
+
+        <div class="form-group custom-input-field col-md-12">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Subcategory:</label>
+          <select  class="form-control" id="sel4">
+            <option value="Makeup">Makeup 
+            </option>
+          </select>
+        </div>
+
+          <div class="form-group custom-input-field col-md-6 text-left time-field">
+            <label>From :</label>
+            <ngx-timepicker-field [defaultTime]="'10:00 am'"></ngx-timepicker-field>
+
+          </div>
+
+          <div class="form-group custom-input-field col-md-6 text-left time-field">
+            <label>To :</label>
+            <ngx-timepicker-field [defaultTime]="'4:00 pm'"></ngx-timepicker-field>
+
+          </div>
+          <div class="form-group custom-input-field col-md-12">
+            <input type="text" class="form-control" placeholder="Price" value="200"
+              required="required">
+          </div>
+          <div class="form-group">
+              <div class="add-img-for-update">
+                  <img class="prof" src="../../assets/images/beauty_service.png" alt="">
+                  <input type="file" name="" id="">
+                  <img class="edit" src="../../assets/images/edit-icon.png" alt="">
+              </div>
+          </div>
+          
+          <div class="custom-input-field text-center col-md-12">
+            <button type="submit" class="btn btn-submit">Update</button>
+            
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Body content end -->

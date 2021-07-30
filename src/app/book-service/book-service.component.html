@@ -1,0 +1,53 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Book <strong>Services</strong></h1>
+    </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="container">
+    <div class="book-services-block">
+        <p>What services are you looking for?</p>
+        <div class="radio-item-bx">
+            <label class="radio-item">
+                
+                <input type="checkbox" checked="checked" name="radio">
+                <span class="checkmark"></span>
+                <span class="radio-label">Haircuts & Styling: Men ,Women</span>
+            </label>
+            <span class="item-price">$10</span>
+        </div>
+        <div class="radio-item-bx">
+            <label class="radio-item">
+                <input type="checkbox" name="radio">
+                <span class="checkmark"></span>
+                <span class="radio-label">Perm or Straightening</span>
+            </label>
+            <span class="item-price">$20</span>
+        </div>
+        <div class="radio-item-bx item-border-top">
+            <label class="radio-item">
+                <input type="checkbox" name="radio">
+                <span class="checkmark"></span>
+                <span class="radio-label">Color & Highlights</span>
+            </label>
+            <span class="item-price">$70</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mrt30">
+            <div class="calendar-block">
+                <mat-calendar></mat-calendar>
+            </div>
+        </div>
+        <div class="col-md-6 mrt30">
+            <div class="slots-block">
+                <h4>Already booked slots</h4>
+                <p class="slots-booked-item">10:00am - 11:30am  |  3:30pm - 4:30pm  |  5:30pm - 6:30</p>
+            </div>
+            <a href="javascript:void(0);"  [routerLink]="['/service-book-details']">Book Service</a>
+        </div>
+    </div>
+</section>
+<!-- Body content end -->
