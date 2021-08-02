@@ -79,6 +79,17 @@
         </div>
         <input #fileInput2 type="file" accept="image/*" (change)="onFileSelected($event)" style="display:none;" />
         <hr class="border-top-1">
+
+        <div class="from-to">
+            <!-- datepicker from --- datepicker to -->
+        </div>
+        <div class="slots">
+            <ng-container *ngFor="let i of [0, 1, 2, 3, 4, 5, 6]">
+                <input (change)="consol(i, f)" *ngFor="let f of [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]">
+            </ng-container>
+        </div>
+
+        <hr class="border-top-1">
         <div class="provided-services-bx text-center padd-tp-btm25">
             <h4 class="service-title">Opening Time</h4>
             <p class="service-time-item"><span>9:00 am</span>&nbsp; to &nbsp;<span>6:00 pm</span></p>

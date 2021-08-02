@@ -244,4 +244,9 @@ export class ProviderMyProfileComponent implements OnInit {
       );
     }
   }
+  consol(i:number, f:number) {
+    console.log("i: ", i, "f: ", f)
+  }
+
+
 }
