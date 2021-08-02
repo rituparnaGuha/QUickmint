@@ -122,7 +122,7 @@ export class WebserviceService {
     return this.http.put(url, body, options);
   }
   public providerEditDetails(body: any) {
-    let url = this.UserBaseURL + 'editDetails';
+    let url = this.ServiceBaseURL + 'editDetails';
 
     let httpHeaders = new HttpHeaders();
     httpHeaders.set('Content-Type', 'application/json');
