@@ -121,22 +121,31 @@ export class ProviderMyProfileComponent implements OnInit {
     }
     this.service.providerEditDetails(this.profileDetailsForm.value).subscribe(
       (data) => {
-        // // console.log(data);
-        // this.presentToast((<any>data)["message"]);
+
         this.toastr.success((<any>data)['message']);
         this.profileDetailsFormSubmitted = false;
-        // this.profileDetailsForm.reset();
-        // this.router.navigate(['/login'])
+
       },
       (err) => {
-        // console.log(err);
+        console.log(err);
       }
     );
+
+    let data = {
+
+        strat_date : this.profileDetailsForm.value.startDate ,
+        end_date : this.profileDetailsForm.value.endDate ,
+        schedule :this.profileDetailsForm.value.schedule
+   
+    }
+    this.service.postSchedule(data).subscribe(resp => {
+      console.log("postSchedule: ", resp)
+    })
   }
 
   getProfileDetails() {
     this.service.getworkerdetails().subscribe((resp: any) => {
-      // // console.log('resp: ', resp);
+       console.log('getworkerdetails: ', resp.data.schedule[0].schedule);
 
       this.profileImage = resp.data.imageUrl;
       this.galleryImages = resp.data.galleryUrl;
@@ -153,6 +162,17 @@ export class ProviderMyProfileComponent implements OnInit {
       this.profileDetailsForm.controls['UserPhone'].setValue(
         resp.data.provider.UserPhone
       );
+      this.profileDetailsForm.controls['startDate'].setValue(
+        resp.data.schedule[0].start_date
+      );
+      this.profileDetailsForm.controls['endDate'].setValue(
+        resp.data.schedule[0].end_date
+      );
+      this.profileDetailsForm.get('schedule').setValue(
+        resp.data.schedule[0].schedule
+      );
+      // console.log('profileDetailsForm: ', this.profileDetailsForm.get('schedule'));
+
     });
   }
 
@@ -259,13 +279,13 @@ export class ProviderMyProfileComponent implements OnInit {
   }
   
   consol(day:number, time:number, index: number) {
-    console.log("day: ", day, "time: ", time, "index: ", index)
+    // console.log("day: ", day, "time: ", time, "index: ", index)
     // console.log(this.profileDetailsForm.value)
     // console.log(this.profileDetailsForm.get('schedule'))
     // console.log(this.profileDetailsForm.get('schedule').controls[index])
 
     let schedule = this.profileDetailsForm.get('schedule').controls[index].value
-    console.log(time, schedule, this.profileDetailsForm.get('schedule').controls[index].value.includes(time))
+    // console.log(time, schedule, this.profileDetailsForm.get('schedule').controls[index].value.includes(time))
     if (schedule.includes(time)) {
       let newval = schedule.filter((el:number) => el != time)
       this.profileDetailsForm.get('schedule').controls[index].setValue(newval)
@@ -273,9 +293,18 @@ export class ProviderMyProfileComponent implements OnInit {
       schedule.push(time)
       this.profileDetailsForm.get('schedule').controls[index].setValue(schedule)
     }
-    console.log(this.profileDetailsForm.get('schedule').controls[index].value)
+    // console.log(this.profileDetailsForm.get('schedule').controls[index].value)
 
   }
 
+  scheduleIncludes(day:any, time:number, index: number) {
+    console.log("day: ", day, "time: ", time, "index: ", index)
+    console.log("value: ",this.profileDetailsForm.get('schedule').controls[index].value)
+    let schedule = this.profileDetailsForm.get('schedule').controls[index].value
 
+    if (schedule.includes(time)) {
+      return true
+    } else return false
+
+  }
 }

@@ -825,6 +825,16 @@ export class WebserviceService {
     return this.http.get(url, options);
   }
 
+  postSchedule(data:any){
+    let url = this.ServiceBaseURL + "workersupdateschedule";
+    let httpHeaders = new HttpHeaders();
+    httpHeaders.set('Content-Type', 'application/json');
+    httpHeaders = httpHeaders.append('x-access-token', this.get_token());
+    let options = { headers: httpHeaders };
+
+    return this.http.post(url, data, options);
+  }
+
   provideFeedback(data:any){
     let url = this.UserBaseURL + 'SubmitReviewRating'
     let httpHeaders = new HttpHeaders();
