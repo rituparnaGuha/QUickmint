@@ -1,0 +1,63 @@
+<section class="inner-banner">
+    <div class="container">
+        <h1>Class<strong> Details</strong></h1>
+    </div>
+</section>
+
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <!-- Tab panes -->
+        <div class="row services-detailstop">
+            <div class="col-md-12">
+                <div class="profile-img">
+                    <!-- <img src="../../assets/images/trainer-img-2.png" alt=""> -->
+                    <img src="{{photoUrl}}/{{classDetails.picture}}">
+                </div>
+                <div class="ser-det-right">
+                    <div class="ser-det-right-com-btn">
+                       <!-- <button class="btn btn-block" (click)="follow()" *ngIf='following==true'>
+                        <i class="fa fa-users" aria-hidden="true"></i> Follow
+                       </button>
+                       <button class="btn btn-block" (click)="unfollow()"  *ngIf='following==false'>
+                        <i class="fa fa-users" aria-hidden="true"></i> UnFollow
+                       </button>
+                       <button class="btn  btn-block" (click)="like()" *ngIf='liking==true'>
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Like
+                       </button>
+                       <button class="btn  btn-block" (click)="unlike()" *ngIf='liking==false'>
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> UnLike
+                       </button>
+                       <button class="btn  btn-block">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i> Message
+                       </button> -->
+                    </div>
+                    <div class="img-video">
+                        <h4>Class Details</h4>
+                        <div class="img-and-vid-list">
+                            <p><span>Title:</span> {{classDetails.title}}</p>
+                            <p><span>Class for:</span> {{classDetails.class_for}}</p>
+                            <p><span>Strength:</span> {{classDetails.total_strenght}}</p>
+                            <p><span>Class Length:</span> {{classDetails.class_length}}</p>
+                            <p><span>Price:</span> {{classDetails.price}}</p>
+                            <p><span>Date:</span> {{classDetails.strat_date | date :'MMM d, y'}} To {{classDetails.end_date | date :'MMM d, y'}}</p>
+                            <p><span>Time:</span> {{classDetails.start_tiem | date :'h:mm a'}} To {{classDetails.end_time | date :'h:mm a'}}</p>
+                            <p><span>Provider Name:</span> {{classDetails.provider_id.UserFullName}}</p>
+                    </div>
+
+                    
+                    <!-- <div class="sherar-opction">
+                        <span>Share</span> 
+                        <ul>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/fb.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/gp.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/ins.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/tw.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/wh.png" alt=""></a></li>
+                        </ul>
+                    </div> -->
+                </div>
+                </div>
+        </div>
+        </div>
+        </div>
+        </section>

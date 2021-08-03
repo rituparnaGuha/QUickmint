@@ -1,0 +1,210 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Host a <strong>Class</strong></h1>
+    </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <div class="text-center">
+            
+                <div class="row">
+                  <div class="col-sm-12 mb-3">
+                    <label class="radio-item">
+                      <input type="radio" name="UserType" value="kids" [(ngModel)]="UserType" (change)="radioChange()">
+                      <span class="checkmark"></span>
+                      <span class="radio-label">Kids</span>
+                    </label>
+                    <label class="radio-item">
+                      <input type="radio" name="UserType" value="adults" [(ngModel)]="UserType" (change)="radioChange()">
+                      <span class="checkmark"></span>
+                      <span class="radio-label">Adults</span>
+                    </label>
+                  </div>
+                   
+
+                     <div class="form-group custom-input-field col-md-12">
+                      <input type="text" [(ngModel)]="title" class="form-control" placeholder="Job title"
+                        required="required">
+                    </div>
+                  <div class="form-group custom-input-field col-md-12">
+                    <textarea rows="3" [(ngModel)]="overview" class="form-control"
+                      placeholder="Overview"></textarea>
+                  </div> 
+
+                   <div class="form-group custom-input-field col-sm-12 text-left">
+                    <label class="d-block">Expertise : </label>
+
+                    <checkbox-group [(ngModel)]="selectedExpertise">
+                    <div class="form-check form-check-inline">
+                        <checkbox value="Maths"><label class="days">Maths</label></checkbox>
+                        <span class="checkmark"></span>
+                     
+                        <checkbox value="Science"><label class="days">Science</label></checkbox>
+                        <span class="checkmark"></span>
+                     
+                        <checkbox value="Social_science"><label class="days">Social science</label></checkbox>
+                        <span class="checkmark"></span>
+                     
+                        <checkbox value="Biology"><label class="days">Biology</label></checkbox>
+                        <span class="checkmark"></span>
+
+                        <checkbox value="Physics"><label class="days">Physics</label></checkbox>
+                        <span class="checkmark"></span>
+                     
+                        <checkbox value="Chemistry"><label class="days">Chemistry</label></checkbox>
+                        <span class="checkmark"></span>
+
+                     </div>
+                     </checkbox-group>
+                 </div>
+              
+                    <div class="form-group custom-input-field col-sm-6">
+                        <input type="number" [(ngModel)]="total_strength" class="form-control" placeholder="Total strenght"
+                        required="required">
+
+                        <div
+                        *ngIf="f.total_strength.invalid && (f.total_strength.dirty || f.total_strength.touched)|| f.total_strength.invalid && classFormSubmitted">
+                        <div class="errMessage" *ngIf="f.total_strength.errors.required">
+                          Strength is required.
+                        </div>
+                        <div class="errMessage" *ngIf="f.total_strength.errors.number">
+                          Enter a valid number
+                        </div>
+                        </div> 
+                    </div>
+
+                    <div class="form-group custom-input-field col-sm-6">
+                        <input type="number" [(ngModel)]="price" class="form-control" placeholder="Price"
+                        required="required">
+
+                        <div
+                        *ngIf="f.cost.invalid && (f.cost.dirty || f.cost.touched)|| f.cost.invalid && classFormSubmitted">
+                        <div class="errMessage" *ngIf="f.cost.errors.required">
+                          Cost is required.
+                        </div>
+                        <div class="errMessage" *ngIf="f.cost.errors.number">
+                          Enter a valid number
+                        </div>
+                        </div>
+                    </div>
+                    
+                     <div class="form-group custom-input-field col-sm-6" *ngIf="UserType=='kids'">
+                        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="category">
+                          <option value="" [disabled]="true" [selected]="true">Select Category</option>
+                          <option *ngFor="let data of kidCategory1"  [value]="data._id" (change)="selectChange()" >{{data.name}}</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group custom-input-field col-sm-6" *ngIf="UserType=='adults'">
+                        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="category">
+                          <option value="" [disabled]="true" [selected]="true">Select Category</option>
+                          <option *ngFor="let data of AdultsCategory1"  [value]="data._id" (change)="selectChange()" >{{data.name}}</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group custom-input-field col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="image" (change)="readUrl($event)" type="file" accept="image/*" placeholder="Upload Pictures">
+                      </div>
+                    
+                      <div class="form-group custom-input-field col-sm-12 text-left">
+                        <label class="d-block">Class Length :</label>
+                         <div class="form-check form-check-inline">
+                          <label class="radio-item">
+                            <input type="radio" name="UserType" value="OneTime" [(ngModel)]="classLength">
+                            <span class="checkmark"></span>
+                            <span class="radio-label">One-Time</span>
+                          </label>
+                          <label class="radio-item">
+                            <input type="radio" name="UserType" value="Weekly" [(ngModel)]="classLength">
+                            <span class="checkmark"></span>
+                            <span class="radio-label">Weekly</span>
+                          </label>
+      
+                          <label class="radio-item">
+                            <input type="radio" name="UserType" value="Monthly" [(ngModel)]="classLength">
+                            <span class="checkmark"></span>
+                            <span class="radio-label">Monthly</span>
+                          </label>
+                         </div>
+                      </div>
+
+
+                      <div class="form-group custom-input-field col-sm-4 text-left time-field">
+                        <label>Start Date :</label>
+                        <input type="text" [(ngModel)]="startDate" onfocus="(this.type='date')" class="form-control" onblur="(this.type='text')" placeholder="Start Date">
+                      </div>
+
+                      <div class="form-group custom-input-field col-sm-4 text-left time-field">
+                        <label> From :</label>
+                        <ngx-timepicker-field [defaultTime]="'10:11 am'" [(ngModel)]="startTime" timeChanged="consolee()"></ngx-timepicker-field>
+                      </div>
+            
+                      <div class="form-group custom-input-field col-sm-4 text-left time-field">
+                        <label>To :</label>
+                        <ngx-timepicker-field [defaultTime]="'11:11 am'" [(ngModel)]="endTime" timeChanged="consolee()"></ngx-timepicker-field>
+                      </div>
+                      <!-- <div class="form-group custom-input-field col-sm-4">
+                        <input type="text" [(ngModel)]="startTime" onfocus="(this.type='time')" class="form-control" onblur="(this.type='text')" placeholder="Start Time">
+                      </div>
+                      <div class="form-group custom-input-field col-sm-4">
+                        <input type="text" [(ngModel)]="endTime" onfocus="(this.type='time')" class="form-control" onblur="(this.type='text')" placeholder="End Time">
+                      </div> -->
+
+                     
+                     <!-- <div class="form-check form-check-inline" *ngFor="let item of list">
+                      <label class="radio-item">
+                        <input type="checkbox" [checked]="getSelection(item)" (change)="onChangeHandler($event)">
+                        <span class="checkmark"></span>
+                        <span class="radio-label">{{item}}</span>
+                      </label>
+                      </div> -->
+
+                      <div class="form-group custom-input-field col-sm-12 text-left">
+                        <label class="d-block">Select days :</label>
+
+                        <checkbox-group [(ngModel)]="selectedDays">
+                        <div class="form-check form-check-inline">
+                            <checkbox value="Sunday"><label class="days">Sunday</label></checkbox>
+                            <span class="checkmark"></span>
+                         
+                            <checkbox value="Monday"><label class="days">Monday</label></checkbox>
+                            <span class="checkmark"></span>
+                         
+                            <checkbox value="Tuesday"><label class="days">Tuesday</label></checkbox>
+                            <span class="checkmark"></span>
+                         
+                            <checkbox value="Wednesday"><label class="days">Wednesday</label></checkbox>
+                            <span class="checkmark"></span>
+
+                            <checkbox value="Thrusday"><label class="days">Thrusday</label></checkbox>
+                            <span class="checkmark"></span>
+                         
+                            <checkbox value="Friday"><label class="days">Friday</label></checkbox>
+                            <span class="checkmark"></span>
+
+                            <checkbox value="Saturday"><label class="days">Saturday</label></checkbox>
+                            <span class="checkmark"></span>
+                         </div>
+                         </checkbox-group>
+                        
+                     </div>
+
+                    <div class="form-group col-sm-12">
+                            <label class="radio-item">
+                                <input type="checkbox" [(ngModel)]="policy">
+                                <span class="checkmark"></span>
+                                <span class="radio-label">Agree with the <a href="#"><b>Cancellation Policy</b></a></span>
+                            </label>
+
+                    <div class="custom-input-field text-center col-md-12">
+                        <button (click)="registerClass()" class="btn btn-submit">Register</button>
+                      </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</section>

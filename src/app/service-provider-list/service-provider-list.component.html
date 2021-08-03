@@ -1,0 +1,64 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Service Provider <strong>List</strong></h1>
+    </div>
+  </section>
+  <!-- Banner end -->
+  <!-- Body content start -->
+  <section class="common-inner-bg-wrap">
+    <div class="container">
+        <!-- Tab panes -->
+        <div class="row">
+            <div class="col-sm-3">
+                <app-filter (onValueChanged)=onValueChanged($event)></app-filter>
+            </div>
+           
+            <div class="col-sm-9">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade show active" id="PrivateJob">
+                <div class="trainer-item-row">
+                    <div class="trainer-item" *ngFor="let provider of service.FilteredData">
+                        <!-- <div class="trainer-img" [ngStyle]="{'background-image':'url(' + provider.imgeUrl + provider.UserPhoto + ')'}">
+                        </div> -->
+
+                        <!-- <div class="trainer-img" [ngStyle]="{'background-image':'url(https://nodeserver.mydevfactory.com:4290/16098485545870.09849552389696581.jpg)'}">
+                        </div> -->
+                        <!-- <div class="trainer-img" [ngStyle]="{'background-image':'url('+ photoUrl + provider.provider_id.UserPhoto + ')'}">
+                        </div> -->
+
+                        <div class="trainer-img" [ngStyle]="{'background-image':'url('+ photoUrl + provider.image + ')'}">
+                        </div>
+                      
+                        <div class="flex-right-box">
+                            <div class="flex-inner-bx">
+                                <div class="trainer-item-info">
+                                    <h2>{{provider.title}}</h2>
+                                    <!-- {{provider.category_details}} -->
+                                    <p>Job provider: <span>{{provider.provider_id.UserName}}</span></p>
+                                    <p>Job description: <span>{{provider.description}}</span></p>
+                                    <!-- <p class="pin-txt m-time-icon">Job start & end time: <span>1:00AM -4:00AM </span></p> -->
+  
+                                    <p class="pin-txt m-price-icon">Price: <span class="price-bold">{{provider.Price}}</span></p>
+                                </div>
+                                <div class="call-acpt text-right">
+                                    <!-- <a href="javascript:void(0);" class="btn details-btn">Details</a> -->
+                                <button (click)="goToPostANeed(provider)" class="btn details-btn mb-2" style="display: block;" mat-raised-button>Book</button>
+                                <button (click)="gotoDetails()" class="btn details-btn" style="display: block;" mat-raised-button>Details</button>
+                                </div>
+                                
+                            </div>
+  
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+  </section>
+  <!-- Body content end -->
+  

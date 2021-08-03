@@ -1,0 +1,175 @@
+<div class="login-modal-header">
+  <button type="button" class="close" mat-dialog-close>
+    <i class="x-icon-medium" aria-hidden="true"></i>
+  </button>
+</div>
+<mat-dialog-content class="login-modal-bx">
+  <div class="modal-content">
+    <h1>Register</h1>
+    <form [formGroup]="userForm">
+      <div class="form-group text-center radio-item-bx">
+        <label class="radio-item">
+          <input type="radio" checked="checked" name="UserType" value="2" formControlName="UserType">
+          <span class="checkmark"></span>
+          <span class="radio-label">Customer</span>
+        </label>
+        <label class="radio-item mrlft20">
+          <input type="radio" name="UserType" value="1" formControlName="UserType">
+          <span class="checkmark"></span>
+          <span class="radio-label">Service Provider</span>
+        </label>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Full Name" required="required"
+              formControlName="UserFullName">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon user-icon"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="f.UserFullName.invalid && (f.UserFullName.dirty || f.UserFullName.touched)|| f.UserFullName.invalid && userFormSubmitted">
+            <div class="errMessage" *ngIf="f.UserFullName.errors.required">
+              Full name is required.
+            </div>
+            <div class="errMessage" *ngIf="f.UserFullName.errors.pattern">
+              Enter valid full name
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="User Name" required="required"
+              formControlName="UserName">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon user-icon"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="f.UserName.invalid && (f.UserName.dirty || f.UserName.touched)|| f.UserName.invalid && userFormSubmitted">
+            <div class="errMessage" *ngIf="f.UserName.errors.required">
+              User Name is required.
+            </div>
+            <div class="errMessage" *ngIf="f.UserName.errors.pattern">
+              Enter valid User Name
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Email Id" required="required"
+              formControlName="UserEmail">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon email-icon"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="(f.UserEmail.invalid && (f.UserEmail.touched)) || (f.UserEmail.invalid && userFormSubmitted)">
+            <div class="errMessage" *ngIf="f.UserEmail.errors.required">
+              Email is required.
+            </div>
+            <div class="errMessage" *ngIf="f.UserEmail.errors.email">
+              Enter valid email
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Phone Number" required="required"
+              formControlName="UserPhone">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon phone-call-icon"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="f.UserPhone.invalid && (f.UserPhone.touched)|| f.UserPhone.invalid && userFormSubmitted">
+            <div class="errMessage" *ngIf="f.UserPhone.errors.required">
+              Phone is required.
+            </div>
+            <div class="errMessage" *ngIf="f.UserPhone.errors.pattern">
+              Enter valid Phone
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group">
+           
+            <input placeholder="City" class="form-control" formControlName="City"  matInput matGoogleMapsAutocomplete
+            (onAutocompleteSelected)="onAutocompleteSelected($event)"
+            (onLocationSelected)="onLocationSelected($event)"
+            (onGermanAddressMapped)="onGermanAddressMapped($event)"
+            (change)="onChange($event)">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon user-icon"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="f.City.invalid && (f.City.touched)|| f.City.invalid && userFormSubmitted">
+            <div class="errMessage" *ngIf="f.City.errors.required">
+              City is required.
+            </div>
+            <div class="errMessage" *ngIf="f.City.errors.pattern">
+              Please select city.
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <input type="password" [type]="fieldTextType ? 'text' : 'password'" class="form-control"
+              placeholder="Password" required="required" formControlName="UserPassword">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon" [ngClass]="{
+                                    'eye-off-icon': !fieldTextType,
+                                    'view-icon': fieldTextType
+                                  }" (click)="toggleFieldTextType()"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="f.UserPassword.invalid && (f.UserPassword.dirty || f.UserPassword.touched)|| f.UserPassword.invalid && userFormSubmitted">
+            <div class="errMessage" *ngIf="f.UserPassword.errors.required">
+              Password is required.
+            </div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="input-group">
+            <input type="password" [type]="fieldTextTypeConfirm ? 'text' : 'password'" class="form-control"
+              placeholder="Confirm Password" required="required" formControlName="UserConfirmPassword">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon" [ngClass]="{
+                                    'eye-off-icon': !fieldTextTypeConfirm,
+                                    'view-icon': fieldTextTypeConfirm
+                                  }" (click)="toggleFieldTextTypeConfirm()"></i>
+              </span>
+            </div>
+          </div>
+          <div
+            *ngIf="f.UserConfirmPassword.invalid && (f.UserConfirmPassword.dirty || f.UserConfirmPassword.touched)|| f.UserConfirmPassword.invalid && userFormSubmitted">
+            <div class="errMessage" *ngIf="f.UserConfirmPassword.errors.required">
+              Confirm password is required.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-submit" (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

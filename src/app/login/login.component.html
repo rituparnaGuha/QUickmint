@@ -1,0 +1,119 @@
+<!-- <div class="login-modal-header">
+  <button type="button" class="close" mat-dialog-close>
+    <i class="x-icon-medium" aria-hidden="true"></i>
+  </button>
+</div> -->
+<mat-dialog-content class="login-modal-bx">
+  <div class="modal-content">
+    <h1>Login</h1>
+    <form [formGroup]="userForm">
+      <!-- <div class="form-group text-center radio-item-bx">
+                <label class="radio-item">
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">Customer</span>
+                </label>
+                <label class="radio-item mrlft20">
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">Service Provider</span>
+                </label>
+            </div> -->
+      <div class="form-group text-center radio-item-bx">
+        <label class="radio-item">
+          <input type="radio" checked="checked" name="UserType" value="2" formControlName="UserType">
+          <span class="checkmark"></span>
+          <span class="radio-label">Customer</span>
+        </label>
+        <label class="radio-item mrlft20">
+          <input type="radio" name="UserType" value="1" formControlName="UserType">
+          <span class="checkmark"></span>
+          <span class="radio-label">Service Provider</span>
+        </label>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" formControlName="UserEmail" placeholder="Email Address"
+            required="required">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon email-icon"></i>
+            </span>
+          </div>
+        </div>
+        <div
+          *ngIf="f.UserEmail.invalid && (f.UserEmail.dirty || f.UserEmail.touched)|| f.UserEmail.invalid && userFormSubmitted">
+          <div class="errMessage" *ngIf="f.UserEmail.errors.required">
+            Email is required.
+          </div>
+          <div class="errMessage" *ngIf="f.UserEmail.errors.email">
+            Enter valid email
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="password" [type]="fieldTextType ? 'text' : 'password'" class="form-control"
+            placeholder="Password" formControlName="UserPassword" required="required">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="icon" [ngClass]="{
+                                'eye-off-icon': !fieldTextType,
+                                'view-icon': fieldTextType
+                              }" (click)="toggleFieldTextType()"></i>
+            </span>
+          </div>
+        </div>
+        <div
+          *ngIf="f.UserPassword.invalid && (f.UserPassword.dirty || f.UserPassword.touched)|| f.UserPassword.invalid && userFormSubmitted">
+          <div class="errMessage" *ngIf="f.UserPassword.errors.required">
+            Password is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group clearfix">
+        <!-- <label class="float-left form-check-label"><input type="checkbox"> Remember me</label> -->
+        <!-- <a href="javascript:void(0);" class="float-right forgot-txt" (click)="openForgotPasswordDialog()">Forgot
+          Password?</a> -->
+      </div>
+
+
+      <div class="form-group clearfix">
+        <label class="radio-item form-check-label float-left">
+          <input type="checkbox">
+          <span class="checkmark"></span>
+          <span class="radio-label">Remember me</span>
+        </label>
+        <a href="javascript:void(0);" class="float-right forgot-txt" (click)="openForgotPasswordDialog()">Forgot
+          Password?</a>
+      </div>
+
+
+
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-submit" (click)="onSubmit()">Login</button>
+      </div>
+
+
+      <div class="separate-bx">
+        <span>OR</span>
+      </div>
+      <p class="text-btm">By clicking Continue with Facebook, Google or Apple, you agree to the <a
+          href="javascript:void(0);">Terms of use</a> and <a href="javascript:void(0);">Privacy Policy</a>.</p>
+      <div class="login-social-icons">
+        <button class="facebook" mat-button (click)="signInWithFB()"><i class="fa fa-facebook"
+            aria-hidden="true"></i></button>
+        <button class="googleplus" mat-button (click)="signInWithGoogle()"><i class="fa fa-google-plus"
+            aria-hidden="true"></i></button>
+        <button class="apple" mat-button (click)="signInWithApple()"><i class="fa fa-apple"
+            aria-hidden="true"></i></button>
+      </div>
+
+      <div class="d-flex justify-content-center modal-bottom-links">
+        Don't have an account? <a href="javascript:void(0);" class="register-link" (click)="openRegisterDialog()"
+          class="ml-2">Register</a>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>

@@ -1,0 +1,110 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+      <h1>Edit a<strong> Service</strong></h1>
+    </div>
+  </section>
+  <!-- Banner end -->
+ 
+  <!-- Body content start -->
+  <section class="container">
+    <div class="text-center width754">
+
+        <div class="row">
+
+          <div class="form-group custom-input-field col-md-12">
+            <input type="text" [(ngModel)]="title" value="{{title}}" name="" class="form-control" placeholder="Job title"
+              required="required">
+          </div>
+        <div class="form-group custom-input-field col-md-12">
+          <textarea rows="5" [(ngModel)]="description" value="{{description}}" name="" class="form-control"
+            placeholder="Job description"></textarea>
+        </div>
+        <!-- <div class="form-group custom-input-field col-md-12">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Category :</label>
+          <select [(ngModel)]="category_id" placeholder="Category" class="form-control" id="sel1" (change)="getSubcategory()">
+            <option *ngFor="let data of categorylisting; let i=index" value="{{data._id}}">{{data.name}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group custom-input-field col-md-12">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Subcategory:</label>
+          <select  #sc1 (change)='getSubCatOne()' placeholder="Subcategory" [(ngModel)]="sub_category_id" class="form-control" id="sel2">
+            <option *ngFor="let data of subcategorylisting; let i=index" value="{{data._id}}">{{data.name}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group custom-input-field col-md-12"  *ngIf="subcatone">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Subcategory One:</label>
+          <select #sc2 placeholder="Subcategory Two" (change)='getSubCatTwo(sc2)' [(ngModel)]="sub_category_one_id" class="form-control" id="sel3">
+            <option *ngFor="let data of subcategoryonelisting; let i=index" value="{{data._id}}">{{data.name}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group custom-input-field col-md-12" *ngIf="subcattwo">
+          <label style="text-align: left!important;" class="col-md-12 pl-0">Subcategory Two:</label>
+          <select placeholder="Subcategory Two" [(ngModel)]="sub_category_two_id" class="form-control" id="sel4">
+            <option *ngFor="let data of subcategorytwolisting; let i=index" value="{{data._id}}">{{data.name}}
+            </option>
+          </select>
+        </div> -->
+
+        
+          <!-- <div class="form-group custom-input-field col-md-12">
+            <input type="date" formControlName="date" class="form-control" placeholder=""
+              required="required">
+          </div> -->
+          <!-- <div class="form-group custom-input-field col-md-12">
+            <ngx-timepicker-field formControlName="time"></ngx-timepicker-field>
+           
+          </div> -->
+
+          <div class="form-group custom-input-field col-md-6 text-left time-field">
+            <label>  From :</label>
+            <ngx-timepicker-field [defaultTime]="'10:11 am'" [(ngModel)]="job_start" timeChanged="consolee()"></ngx-timepicker-field>
+          </div>
+
+          <div class="form-group custom-input-field col-md-6 text-left time-field">
+            <label>To :</label>
+            <ngx-timepicker-field [defaultTime]="'11:11 am'" [(ngModel)]="job_end" timeChanged="consolee()"></ngx-timepicker-field>
+          </div>
+          <!-- <div class="form-group custom-input-field col-md-6">
+            <input type="time"  class="form-control" placeholder="End Time"
+              required="required">
+          </div>  -->
+          <div class="form-group custom-input-field col-md-12">
+            <label style="text-align: left!important;" class="col-md-12 pl-0">Price :</label>
+            <input type="text" [(ngModel)]="Price" class="form-control" value="{{Price}}" placeholder="Price"
+              required="required">
+          </div>
+
+          <!-- <label for="">Upload an image: </label>
+            <input [(ngModel)]="image" class="form-control" (change)="readUrl($event)" type="file" accept="image/*"> -->
+
+          <!-- <div class="form-group">
+            <div class="add-img-for-update">
+                <img class="prof" src="../../assets/images/beauty_service.png" alt="">
+                <input type="file" [(ngModel)]="image" (change)="readUrl($event)" name="" id="">
+                <img class="edit" src="../../assets/images/edit-icon.png" alt="">
+            </div>
+        </div>
+         -->
+
+          <!-- <div class="form-group custom-input-field col-md-12">
+            <div class="date-field">
+              <input type="text" formControlName="start_date" class="form-control" placeholder="Date"
+                [matDatepicker]="picker" required="required">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div> -->
+          <div class="custom-input-field text-center col-md-12">
+            <button (click)="onSubmit()" class="btn btn-submit">Submit</button>
+          </div>
+          
+        </div>
+    </div>
+  </section>
+  <!-- Body content end -->

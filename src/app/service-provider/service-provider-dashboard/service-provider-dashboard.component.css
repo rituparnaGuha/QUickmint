@@ -1,0 +1,235 @@
+.Provider-d-profile{
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #f2f2f2;
+    text-align: center;
+    border: none;
+    padding-bottom: 30px;
+}
+.profile-img {
+    height: 120px;
+    width: 120px;
+    display: block;
+    margin: -48px auto 0px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border:4px solid #f2f2f2;
+}
+.profile-img img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+}
+.Provider-d-profile h2{
+    margin-bottom: 10px;
+}
+.Provider-d-profile p{
+    margin-bottom: 4px;
+}
+.Provider-d-profile p a{
+    color: #000;
+    font-size: 18px;
+}
+.Provider-d-profile a.btn{
+    width: 184px;
+    height: 64px;
+    background: linear-gradient(180deg, #22A6DE 0%, #2257DE 75.52%);
+    border-radius: 100px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 51px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: none;
+    margin: 10px auto 0px;
+    font-weight: 400;
+    text-decoration: none;
+}
+.sp-short .card {
+    text-align: center;
+    min-height: 150px;
+    justify-content: center;
+    box-shadow:0px 0px 8px #f2f2f2;
+    border:none;
+    cursor: pointer;
+}
+.sp-short .card h5{
+    font-size: 48px;
+    margin-bottom: 8px;
+    color: #2294de;
+}
+.sp-short .card p{
+    font-size: 20px;
+    color: #777;
+}
+
+.job-cat-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.job-cat-list .jb-cat {
+    width: 220px;
+    margin: 0px;
+    box-shadow: 0px 0px 8px #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.job-cat-list .jb-cat  img{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}
+.job-cat-list .jb-cat h4{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color:#fff;
+    font-weight: 700;
+}
+
+.card.looking-for.mb-3 {
+    padding: 32px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+.card.looking-for.mb-3 label{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 34px;
+    color: #282827;
+    margin-bottom: 0px;
+}
+
+.card.looking-for.mb-3 select {
+    background: rgb(34 166 222 / 10%);
+    border-radius: 3px;
+    padding: 8px 16px;
+    border: none;
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 68px;
+color: #22A6DE;
+}
+.comm-card{
+    padding: 32px;
+    border: none;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+.comm-card h3{
+    color: #282827;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.comm-card p{
+    font-size: 16px;
+    color: #7D7D7D;
+    margin-bottom: 12px;
+}
+.progress.mx-w-75 {
+    max-width: 85%;
+    height: 6px;
+    color: #000;
+    overflow: visible;
+}
+
+.progress.mx-w-75 .progress-bar {
+    position: relative;
+    overflow: visible;
+    background: #2257DE;
+    border-radius: 10px;
+}
+.progress.mx-w-75 .progress-bar::after{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: -10px;
+    top: -8px;
+    background-color: #ffff;
+    border: 4px solid #2257DE;
+    content: "";
+    border-radius: 50%;
+}
+.progress.mx-w-75 .progress-bar span{
+    position: absolute;
+    right: -75px;
+    bottom: -20px;
+    z-index: 9999;
+    color: #2257DE;
+    font-size: 16px;
+    width: 150px;
+    text-align: center;
+}
+.progress-details.mx-w-75 {
+    width: 85%;
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+.progress-details.mx-w-75 .left-text{
+    color:#22A6DE;
+}
+.progress-details.mx-w-75 .right-cont{
+    color:#7D7D7D;
+}
+
+.progress.mx-w-75.bg-green .progress-bar {
+    background: #41A44B;
+}
+.progress.mx-w-75.bg-green .progress-bar::after{
+    border: 4px solid #41A44B;
+}
+.progress.mx-w-75.bg-green .progress-bar span{
+    color: #41A44B;
+}
+ul.list-of-pod{
+    padding:0px;
+    margin: 0px;
+    width: 100%;
+}
+ul.list-of-pod li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+ul.list-of-pod li:nth-child(1){
+    margin-top: 0px;
+}
+ul.list-of-pod li span{
+    color: #777777;
+}
+.jobtii-w-100 .tii-w-100{
+        width: 100%;
+    padding-left: 0px;
+    }
+.trainer-item.jobtii-w-100 {
+        display: block;
+ }
+.trainer-item.jobtii-w-100 p{
+        margin-top: 8px;
+}
+.trainer-item.jobtii-w-100 p i{
+    margin-right: 6px;
+}
+.form-group.cat-filter .form-control {
+    height: 52px;
+    border-radius: 12px;
+}
+.form-group.cat-filter {
+    width: 240px;
+    float: right;
+}

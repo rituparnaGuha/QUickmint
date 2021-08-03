@@ -1,0 +1,25 @@
+<div class="p-4" *ngIf="this.data">
+    <div class="flex-inner-bx">
+        <div class="trainer-item-info">
+            <h2>{{data.job.bussiness_name}} </h2>
+            <!-- {{provider.category_details}} -->
+            <p class="pt-2">Time: <span>{{getTime(data.job.Slot.time)}}</span></p>
+            <p class="pt-2">Slot: <span>{{data.job.Slot.days}}</span></p>
+            <p class="pt-2">Cost: <span>{{data.job.cost}}</span></p>
+            <p class="pt-2">Total Strength: <span>{{data.job.total_strength}}</span></p>
+            <!-- <p class="pin-txt m-time-icon">Job start & end time: <span>1:00AM -4:00AM </span></p> -->
+
+            <!-- <p class="pin-txt m-price-icon">Price: <span class="price-bold">$90</span></p> -->
+            <!-- <p class="pin-txt m-price-icon">Phone: <span class="price-bold">{{provider.UserPhone}}</span></p> -->
+
+            <ul>
+                <p>Students:</p>
+                <li *ngFor="let student of data.job.booked_students">
+                    <p>Name: {{student.Student_name}}</p>   
+                    <p>Student email: {{student.Student_email}}</p>   
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

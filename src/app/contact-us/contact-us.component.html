@@ -1,0 +1,123 @@
+<!-- Banner start -->
+<section class="inner-banner">
+  <div class="container">
+    <h1>Contact<strong> Us</strong></h1>
+  </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="container">
+  <div class="text-center width754">
+    <form [formGroup]="contactForm">
+      <div class="row">
+        <div class="form-group custom-input-field col-md-6">
+          <input
+            type="text"
+            formControlName="firstname"
+            class="form-control"
+            placeholder="First Name"
+            required="required"
+          />
+        </div>
+
+        <div class="form-group custom-input-field col-md-6">
+          <input
+            type="text"
+            formControlName="lastname"
+            class="form-control"
+            placeholder="Last Name"
+            required="required"
+          />
+        </div>
+
+        <div class="form-group custom-input-field col-md-6">
+          <input
+            type="tel"
+            formControlName="phone"
+            class="form-control"
+            placeholder="Phone No"
+            required="required"
+          />
+        </div>
+
+        <div class="form-group custom-input-field col-md-6">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="Email"
+            required="required"
+          />
+        </div>
+
+
+        <div class="form-group custom-input-field col-md-12">
+          <input
+            type="text"
+            formControlName="subject"
+            class="form-control"
+            placeholder="Subject"
+            required="required"
+          />
+        </div>
+
+        <div class="form-group custom-input-field col-md-12">
+          <textarea
+            rows="5"
+            formControlName="message"
+            class="form-control"
+            placeholder="Type Your Message"
+          ></textarea>
+        </div>
+
+        <div *ngIf="contactForm.controls['firstname'].invalid && (contactForm.controls['firstname'].dirty || contactForm.controls['firstname'].touched)" class="alert alert-danger">
+          <div *ngIf="f.firstname.errors?.required">
+          First Name is required.
+        </div>
+      </div>
+
+        <div *ngIf="contactForm.controls['subject'].invalid && (contactForm.controls['subject'].dirty || contactForm.controls['subject'].touched)" class="alert alert-danger">
+          <div *ngIf="f.subject.errors?.required">
+          Subject is required.
+        </div>
+      </div>
+
+        <div *ngIf="contactForm.controls['message'].invalid && (contactForm.controls['message'].dirty || contactForm.controls['message'].touched)" class="alert alert-danger">
+          <div *ngIf="f.message.errors?.required">
+          Message is required.
+        </div>
+      </div>
+      <div *ngIf="contactForm.controls['phone'].invalid && (contactForm.controls['phone'].dirty || contactForm.controls['phone'].touched)" class="alert alert-danger">
+        <div *ngIf="f.phone.errors?.required">
+        Phone no. is required.
+      </div>
+      <div *ngIf="f.phone.errors?.pattern">
+        Please enter valid Phone no.
+      </div>
+    </div>
+
+    <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)" class="alert alert-danger">
+      <div *ngIf="f.email.errors?.required">
+      Email is required.
+    </div>
+
+    <div *ngIf="f.email.errors?.email">
+      Please enter valid email
+    </div>
+  </div>
+
+  <!-- <div *ngIf="f.email.errors?.required || f.email.errors?.invalid" class="alert alert-danger">
+    Email is required.
+  </div> -->
+
+
+        <div class="custom-input-field text-center col-md-12">
+          <button type="submit" class="btn btn-submit" (click)="onSubmit()">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- Body content end -->

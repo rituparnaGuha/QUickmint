@@ -1,0 +1,129 @@
+.nav-tabs {
+  border-bottom: 0;
+  margin-bottom: 30px;
+}
+.nav-tabs li {
+  position: relative;
+  min-width: 146px;
+  text-align: center;
+}
+.nav-tabs li:first-child a {
+  border-radius: 5px 0 0 5px;
+}
+.nav-tabs li:last-child a {
+  border-radius: 0 5px 5px 0;
+}
+.nav-tabs li a {
+  background: #f9f9f9;
+  font-size: 16px;
+  color: #9b9a9a;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+}
+.nav-tabs li a.active,
+.nav-tabs li a:hover {
+  background-color: #22a6de;
+  color: #fff;
+}
+
+.flex-right-box {
+  width: calc(100% - 190px);
+  padding-left: 25px;
+}
+.flex-inner-bx {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.trainer-item .trainer-img {
+  width: 180px;
+  height: 160px;
+}
+.trainer-item .trainer-item-info {
+  width: calc(100% - 260px);
+  padding-left: 0;
+}
+.trainer-item .trainer-item-info p {
+  color: #818181;
+  font-size: 16px;
+}
+.trainer-item .trainer-item-info p span {
+  color: #282827;
+  font-weight: 500;
+}
+.spd-info-flex-bx {
+  border-top: 1px solid #d7d7d7;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+.spd-info-flex-bx h4 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 7px;
+}
+.spd-info-flex-bx p {
+  font-size: 16px;
+  color: #282827;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.spd-info-flex-bx p i {
+  margin-right: 7px;
+  color: #7b7b7b;
+}
+.spd-info-flex-bx p span {
+  color: #22a6de;
+}
+.trainer-item .trainer-item-info p span.price-bold {
+  color: #22a6de;
+  font-weight: bold;
+}
+.pin-txt.m-time-icon:before {
+  /* background-image: url('../../assets/images/carbon_time-icon.svg'); */
+  background-size: 15px;
+}
+.pin-txt.m-date-icon:before {
+  /* background-image: url('../../assets/images/carbon_calendar-icon.svg'); */
+  background-size: 15px;
+}
+.pin-txt.m-price-icon:before {
+  /* background-image: url('../../assets/images/price-tag-icon.svg'); */
+  background-size: 15px;
+}
+.details-btn {
+  min-width: 220px;
+}
+
+@media (max-width: 991px) {
+  .flex-inner-bx {
+    display: block;
+  }
+  .trainer-item .trainer-item-info {
+    width: inherit;
+  }
+  .details-btn {
+    margin-top: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .flex-right-box {
+    width: inherit;
+    padding-left: 0;
+  }
+  .trainer-item {
+    text-align: inherit;
+  }
+  .pin-txt {
+    display: block;
+  }
+  .trainer-item .trainer-img {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    display: block;
+  }
+}

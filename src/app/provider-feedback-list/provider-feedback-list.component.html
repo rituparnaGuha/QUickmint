@@ -1,0 +1,47 @@
+
+<!-- Banner start -->
+<section class="inner-banner">
+
+    <div class="container">
+        <h1><strong>Customer's Feedback</strong></h1>
+    </div>
+
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+   
+    <div class="container">
+        <div class="col-md-12">
+            <div class="table-responsive-md transaction-table">
+                <table class="table Service-lit-tab-det">
+                    <thead>
+                        <tr>  
+                        <th scope="col">Rating</th>
+                        <th scope="col">Review</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Customer Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of Feedbacklist;let i=index">
+                            <td><div class="propular_rate">
+                                
+                                <div class="cont">
+                                    <div class="stars popularStarRating">
+                                        <ngx-star-rating [(ngModel)]="item.rating" [disabled] ="true"></ngx-star-rating>
+                                    </div>
+                                </div>
+                            </div></td>
+                            <td>{{item.review}}</td>
+                            <td>{{item.created.UserFullName}}</td>
+                            <td>{{item.created.UserEmail}}</td>
+                        </tr>
+                        
+                    </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Body content end -->

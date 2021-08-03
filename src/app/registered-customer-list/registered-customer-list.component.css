@@ -1,0 +1,23 @@
+
+.trainer-item{
+    padding: 15px;
+    margin-bottom: 30px;
+}
+.trainer-item .trainer-img {
+    width: 100px;
+    height: 100px;
+}
+.trainer-item .trainer-item-info {
+    width: calc(100% - 100px);
+    padding-left: 15px;
+}
+
+@media (max-width: 767px){
+    .trainer-item .trainer-item-info {
+        width: auto;
+        padding-top: 15px;
+        padding-left: 0;
+    }
+}
+
+

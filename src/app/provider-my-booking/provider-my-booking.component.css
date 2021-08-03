@@ -1,0 +1,65 @@
+.transaction-table{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+.transaction-table .table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.transaction-table .table thead th {
+    vertical-align: bottom;
+    border-bottom: 0;
+    border-top: 0;
+    background: #F4F4F4;
+    font-size: 18px;
+    font-weight: 500;
+    color: #282827;
+    padding: 15px;
+}
+.transaction-table .table tr:first-child td{
+    border-top: 0;
+}
+.transaction-table .table td{
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #777777;
+    border-top: 1px solid #E0E0E0;
+    vertical-align: middle;
+}
+.transaction-table .table td.price{
+    font-weight: 700;
+    color: #2257DE;
+}
+.details-btn{
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #2257DE;
+    border-radius: 25px;
+    border: 1px solid #2257DE;
+    padding: 7px 15px;
+    min-width: 100px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.width-100{
+    width: 100px;
+}
+@media (max-width: 767px){
+    .trainer-item .trainer-item-info {
+        width: auto;
+        padding-top: 15px;
+        padding-left: 0;
+    }
+    .transaction-table .table {
+        min-width:575px; 
+    }
+    .transaction-table .table thead th {
+        font-size: 15px;
+    }
+    .transaction-table .table td{
+        font-size: 14px;
+    }
+}

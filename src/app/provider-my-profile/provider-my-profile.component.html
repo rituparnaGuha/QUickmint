@@ -1,0 +1,149 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>My <strong>Profile</strong></h1>
+    </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="container">
+
+    <div class="my-profile-wrap">
+        <div class="profile-img-block"
+            [ngStyle]="{'background-image': profileImage ? 'url(' +  profileImage + ')'  : 'url(assets/images/trainer-img-4.png' + ')'}">
+            <i class="edit-icon" (click)="fileInput.click()"></i>
+        </div>
+        <input #fileInput type="file" accept="image/*" (change)="onProfileImageSelected($event)"
+            style="display:none;" />
+        <div class="row">
+            <form [formGroup]="profileDetailsForm" style="width:100%">
+                <div class="row">
+                    <div class="col-md-6 form-group custom-input-field">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email"
+                            required="required" [readonly]="true">
+                    </div>
+                    <div class="col-md-6 form-group custom-input-field">
+                        <input type="text" class="form-control" formControlName="UserName" placeholder="User Name"
+                            required="required">
+                    </div>
+                    <div class="col-md-6 form-group custom-input-field">
+                        <input type="text" class="form-control" formControlName="UserFullName"
+                            placeholder="User Full Name" required="required">
+                    </div>
+                    <div class="col-md-6 form-group custom-input-field">
+                        <input type="text" class="form-control" formControlName="UserPhone" placeholder="User Phone"
+                            required="required">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <hr class="border-top-1">
+        <div class="provided-services-bx text-center padd-tp-btm25 ">
+            <h4 class="service-title">Provided Services</h4>
+            <ul class="ps-ul-list">
+                <li><a href="#">Hair Cut</a></li>
+                <li><a href="#">Facial</a></li>
+                <li><a href="#">Oil Massage</a></li>
+                <li><a href="#">Car Wash</a></li>
+                <li><a href="#">Technology</a></li>
+                <li>
+                    <a class="ps-add-btn" [routerLink]="['/provider-add']">
+                        Add
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr class="border-top-1">
+        <div class="provided-services-bx text-center padd-tp-btm25 ">
+            <h4 class="service-title">Status</h4>
+            <div class="radio-item-bx">
+                <label class="radio-item">
+                    <input type="radio" checked="checked" name="radio">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">Online</span>
+                </label>
+                <label class="radio-item">
+                    <input type="radio" name="radio">
+                    <span class="checkmark"></span>
+                    <span class="radio-label">Offline</span>
+                </label>
+            </div>
+        </div>
+        <hr class="border-top-1">
+        <div class="provided-services-bx text-center padd-tp-btm25 ">
+            <h4 class="service-title">Photo Gallery</h4>
+            <ul class="pg-ul-list">
+                <li *ngFor="let img of galleryImages">
+                    <div class="pg-item-img-hold"
+                        [ngStyle]="{'background-image' : img ? 'url(' + img + ')' : 'url(assets/images/trainer-img-3.png' + ')'}">
+                    </div>
+                <li>
+                    <div class="pg-add-img-box" (click)=" fileInput2.click()">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <input #fileInput2 type="file" accept="image/*" (change)="onFileSelected($event)" style="display:none;" />
+        <hr class="border-top-1">
+        <form [formGroup]="profileDetailsForm">
+            <div class="from-to">
+                <!-- datepicker from --- datepicker to -->
+
+                <div class="row d-flex     justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h4 class="service-title">Select Date</h4>
+                    </div>
+                    <div class="form-group custom-input-field col-md-4">
+                        <input formControlName="startDate" value="startDate" class="form-control" placeholder="To Date"
+                            type="text" onfocus="(this.type='date')" onblur="(this.type='text')" type="text">
+                    </div>
+                    <div class="form-group custom-input-field col-md-4">
+                        <input formControlName="endDate" value="endDate" class="form-control" placeholder="From Date"
+                            type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive schedule-table">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <td class="align-middle"></td>
+                            <td class="align-middle">Sunday</td>
+                            <td class="align-middle">Monday</td>
+                            <td class="align-middle">Tuesday</td>
+                            <td class="align-middle">Wednesday</td>
+                            <td class="align-middle">Thursday</td>
+                            <td class="align-middle">Friday</td>
+                            <td class="align-middle">Saturday</td>
+                        </tr>
+                    </thead>
+                    <tbody formArrayName="schedule">
+                        <tr *ngFor="let Time of [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]">
+                            <td class="align-middle">{{Time}}:00</td>
+                            <td *ngFor="let day of profileDetailsForm.get('schedule').controls; let i = index">
+                                <input type="checkbox" (change)="consol(day, Time, i)" > <span class="schedule-add"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+
+        <!-- <div class="slots">
+            <ng-container *ngFor="let i of [0, 1, 2, 3, 4, 5, 6]">
+                <input (change)="consol(i, f)" *ngFor="let f of [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]">
+            </ng-container>
+        </div> -->
+
+        <hr class="border-top-1">
+        <div class="provided-services-bx text-center padd-tp-btm25">
+            <h4 class="service-title">Opening Time</h4>
+            <p class="service-time-item"><span>9:00 am</span>&nbsp; to &nbsp;<span>6:00 pm</span></p>
+        </div>
+        <div class="custom-input-field share-with-btnGroup text-center">
+            <button class="btn btn-submit" (click)="onSubmit()">Update</button>
+        </div>
+    </div>
+</section>
+<!-- Body content end -->

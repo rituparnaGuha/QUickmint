@@ -1,0 +1,71 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Registered Class <strong>List</strong></h1>
+    </div>
+    <!-- <div class="trainer-item-row" *ngFor="let class of bookinglist">
+        <p>{{class}}</p>
+        </div> -->
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <app-filter-class (onValueChanged)=onValueChanged($event)></app-filter-class>
+            </div>
+
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12 text-right" *ngIf="userType=='1'">
+                        <button class="btn details-btn mb-4 reg-new" [routerLink]="['/register-class']">Register a New  Class </button>
+                    </div>
+                </div>
+                <div class="trainer-item-row" *ngFor="let class of service.classesList">
+                    <div class="trainer-item">
+                        <!-- <div class="trainer-img" style="background-image:url('assets/images/trainer-img-1.png')">
+                        </div> -->
+
+                        <div class="trainer-img" [ngStyle]="{'background-image':'url('+ photoUrl + class.picture + ')'}">
+                        </div>
+                        <div class="flex-right-box">
+                            <div class="flex-inner-bx">
+                                <div class="trainer-item-info flx-inner-cont">
+                                    <h2>{{class.title}}</h2>
+                                    <p><span class="lab">Provider :</span> <span class="cont">{{class.provider_id.UserFullName}}</span></p>
+                                    <p><span class="lab">Expertise :</span>   <span class="cont">{{displayExpertise(class)}} </span></p>
+                                   
+                                    <p><span class="lab">Total Strenght :</span> <span class="cont">{{class.total_strenght}}</span></p>
+                                    <!-- <p><span class="lab">Current Strenght :</span> <span class="cont">{{class.booked_students.length}}</span></p> -->
+                                    <!-- <p><span class="lab">Start Date :</span> <span class="cont">{{class.startDate ? class.startDate : 'NA'}}</span></p> -->
+                                    <p><span class="lab">Cost :</span> <span class="cont">{{class.price}}</span></p>
+                                </div>
+
+                                <!--join meeting for provider-->
+                                <div class="flx-inner-btn flx-inner-btn text-right" *ngIf="userType=='1'">
+                                <button #meeting [disabled]="meetingEnable(class.start_tiem,class.end_time)" (click)="joinMeeting(class)" class="btn details-btn"><i class="fa fa-video-camera" aria-hidden="true"></i>Join Meeting</button>
+                                </div>
+                                <!--join meeting for user-->
+                                <div class="flx-inner-btn flx-inner-btn text-right" *ngIf="userType=='2'">
+                                    <!-- <button (click)="doaction(class)" class="btn details-btn"><i class="fa fa-video-camera" aria-hidden="true"></i> {{setButtonText(class)}}</button> -->
+                                    <div>
+                                    <div *ngIf="bookinglist.includes(class._id)">
+                                    <button #meeting  [disabled]="meetingEnable(class.start_tiem,class.end_time)" (click)="joinMeeting(class)" class="btn details-btn"><i class="fa fa-video-camera" aria-hidden="true"></i>Join Meeting</button>
+                                    </div>
+                                    <button *ngIf="!bookinglist.includes(class._id)" (click)="makePayment(class)" class="btn details-btn"><i class="fa fa-video-camera" aria-hidden="true"></i> Book Now</button>
+                                    </div>
+                                    <!-- <button (click)="openDialog(class)"  class="btn details-btn mt-3"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</button> -->
+                                    <button (click)="gotoDetails(class)"  class="btn details-btn mt-3"><i class="fa fa-info-circle" aria-hidden="true"></i> Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</section>

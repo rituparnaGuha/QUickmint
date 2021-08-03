@@ -1,0 +1,88 @@
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Customer <strong>Booking List</strong></h1>
+    </div>
+</section>
+<!-- Banner end -->
+<!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" href="#Customer-List" role="tab" data-toggle="tab">Customer List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Accepted-Customer-List" role="tab" data-toggle="tab">Accepted Customer List</a>
+            </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade show active" id="Customer-List">
+                <div class="trainer-item-row">
+                    <div class="trainer-item">
+                        <div class="table-responsive-md transaction-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Job</th>
+                                    <th scope="col">Service</th>
+                                    <th scope="col" class="width-100">Price</th>
+                                    <th scope="col" class="width-100">Status</th>
+                                    <th scope="col" class="width-100"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let job of privateJobList">
+                                        <td>{{job.job_title}}</td>
+                                        <td>{{job.category_info}}</td>
+                                        <td class="price">{{job.price}}</td>
+                                        <td (click)="goToDetails(job)" class="text-right"><a class="details-btn">Details</a></td>
+                                        <td class="text-right">{{getStatusText(job.job_status)}}</td>
+
+                                        <button class="btn Accept-btn" (click)="acceptJob(job)">Accept</button>
+                                        <button class="btn btn-outline" (click)="declineJob(job)">Decline</button>
+                                    </tr>
+                                </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="Accepted-Customer-List">
+                <div class="trainer-item-row">
+                    <div class="trainer-item">
+                        <div class="table-responsive-md transaction-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Job</th>
+                                    <th scope="col">Service</th>
+                                    <th scope="col" class="width-100">Price</th>
+                                    <th scope="col" class="width-100">Status</th>
+                                    <th scope="col" class="width-100"></th>
+                                    <th scope="col" class="width-100" style="min-width: 300px;"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let job of acceptedJobList">
+                                        <td>{{job.job_title}}</td>
+                                        <td>{{job.category_info}}</td>
+                                        <td class="price">{{job.price}}</td>
+                                        <td (click)="goToDetails(job)" class="text-right"><a class="details-btn">Details</a></td>
+                                        <td class="text-right">{{getStatusText(job.job_status)}}</td>
+                                        <td class="text-right">
+                                            <button class="btn btn-outline" (click)="openDialog(job)">Call</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Body content end -->

@@ -1,0 +1,427 @@
+
+<!-- Banner start -->
+<section class="inner-banner">
+    <div class="container">
+        <h1>Service  <strong>Details</strong></h1>
+    </div>
+  </section>
+  <!-- Banner end -->
+  <!-- Body content start -->
+<section class="common-inner-bg-wrap">
+    <div class="container">
+        <!-- Tab panes -->
+        <div class="row services-detailstop">
+            <div class="col-md-12">
+                <div class="profile-img">
+                    <!-- <img src="../../assets/images/trainer-img-2.png" alt=""> -->
+                    <img src="{{photoUrl}}/{{providerData.providerdetails.UserPhoto}}">
+                </div>
+                <!-- <div class="trainer-img" [ngStyle]="{'background-image':'url('+ photoUrl + providerData.providerdetails.UserPhoto + ')'}">
+                </div> -->
+
+                <div class="ser-det-right">
+                    <div class="ser-det-right-com-btn">
+                       <button class="btn btn-block" (click)="follow()" *ngIf='following==true'>
+                        <i class="fa fa-users" aria-hidden="true"></i> Follow
+                       </button>
+                       <button class="btn btn-block" (click)="unfollow()"  *ngIf='following==false'>
+                        <i class="fa fa-users" aria-hidden="true"></i> UnFollow
+                       </button>
+                       <button class="btn  btn-block" (click)="like()" *ngIf='liking==true'>
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Like
+                       </button>
+                       <button class="btn  btn-block" (click)="unlike()" *ngIf='liking==false'>
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> UnLike
+                       </button>
+                       <button class="btn  btn-block">
+                        <i class="fa fa-comments-o" aria-hidden="true"></i> Message
+                       </button>
+                    </div>
+                    <div class="img-video">
+                        <h4>Some Video/Photos</h4>
+                        <div class="img-and-vid-list">
+                            <div class="imd-video-list" *ngFor='let item of providerGallery | slice:0:3'>
+                                
+                                <img src="{{photoUrl}}/{{item}}" alt="">
+                               
+                                <!-- <div class="title">
+                                    Photos title
+                                </div> -->
+                            </div>
+                            <a class="viewAll1" href="javascript:void(0);" (click)="ViewImage()">View all</a>
+                            
+                            <!-- <div class="imd-video-list">
+                                <video id="banner-video" width="100%" poster="assets/images/video-poster.png" controls>
+                                    <source src="assets/video/banner.mp4" type="video/mp4">
+                                    <source src="assets/video/banner.mp4" type="video/ogg">
+                                  </video>
+                                  <div class="title">
+                                    Video title
+                                </div>
+                            </div>
+                            <div class="imd-video-list">
+                                <video id="banner-video" width="100%" poster="assets/images/video-poster.png" controls>
+                                    <source src="assets/video/banner.mp4" type="video/mp4">
+                                    <source src="assets/video/banner.mp4" type="video/ogg">
+                                  </video>
+                                  <div class="title">
+                                    Video title
+                                  </div>
+                            </div>
+                            <div class="imd-video-list">
+                                <img src="../../assets/images/banner.png" alt="">
+                                <div class="title">
+                                    Photos title
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    
+                    <div class="sherar-opction">
+                        <span>Share</span> 
+                        <ul>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/fb.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/gp.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/ins.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/tw.png" alt=""></a></li>
+                            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="../../assets/images/icon/wh.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-block vi-li-f-aq">
+                   <div class="flo-lik">
+                    <span>{{follow1}} Followers </span> <span>{{like1}} Likes</span>
+                   </div>   <button class="btn">Ask a questions</button><button class="btn" (click)="RateService('abc')">Provide Feedback</button>
+                </div>
+            </div>
+        </div>
+        <div class="row services-detailsbottom mt-5">
+            <div class="col-md-12 mb-4">
+                <h4 class="mb-3 service-title">
+                    Credentials
+                </h4>
+                <!-- <p>
+                    {{providerData.providerdetails.credentials}}
+                </p> -->
+                <div [innerHTML] = "page"></div>
+            </div>
+            <div class="col-md-12 my-4">
+                <h4 class="service-title">Schedule</h4>
+                <div class="sud-clan d-block">
+                    <h5 class="schedule-date-title text-center">January 03,2021 - January 10, 2021</h5>
+                    <p class="schedule-sub-title text-center">All times listed are in your local time zone</p>
+                    <div class="table-responsive schedule-table">
+                        <table class="table table-bordered text-center">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle">08:00am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">09:00am</td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">10:00am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">11:00am</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle"></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                    <td><span class="schedule-add"></span></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="sud-btm-det d-flex mt-4">
+                    <div class="sud-btm-det-cont" *ngFor='let item of otherClass | slice:0:3;' >
+                        <div>
+                        <!-- <div *ngIf="i<3" class="classes-btn"> -->
+                        <h3>
+                            {{item.title}}
+                        </h3>
+                        <p>
+                            Classes for : {{item.class_for}}
+                        </p>
+                        <p>
+                           Price: {{item.price}}
+                        </p>
+                        <p>
+                           Start : {{item.start_tiem | date:'medium'}}
+                         </p>
+                         <p>
+                            End : {{item.end_time | date:'medium'}}
+                         </p>
+                        </div>
+                    </div>
+                </div>
+                <a class="viewAll2" href="javascript:void(0);" (click)="ViewClasses()">View all</a>
+                
+                <!-- <div class="sud-btm-det d-flex mt-4">
+                    <div class="sud-btm-det-cont">
+                        <h3>
+                            Individual Tax package
+                        </h3>
+                        <p>
+                            5hrs
+                        </p>
+                        <p>
+                            $30
+                        </p>
+                        <button class="btn">BooK</button>
+                    </div>
+                    <div class="sud-btm-det-cont">
+                        <h3>
+                           Audit package
+                        </h3>
+                        <p>
+                            10hrs
+                        </p>
+                        <p>
+                            $30
+                        </p>
+                        <button class="btn">BooK</button>
+                    </div>
+                    <div class="sud-btm-det-cont">
+                        <h3>
+                            Individual package
+                        </h3>
+                        <p>
+                            5hrs
+                        </p>
+                        <p>
+                            $30
+                        </p>
+                        <button class="btn">BooK</button>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <h4 class="mb-2 service-title">
+                    Reviews
+                </h4>
+                <!-- <p>Customers rated this pro highly for <strong>value, punctuality,</strong> and <strong>work quality</strong> </p> -->
+                <p>Customer's rating for this provider:</p>
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <h4 class="rating">
+                            {{averageRating}}.0
+                        </h4>
+                        <!-- <div class="d-block star">
+                            <i class="fa fa-star f3" aria-hidden="true"></i>
+                            <i class="fa fa-star f3" aria-hidden="true"></i>
+                            <i class="fa fa-star f3" aria-hidden="true"></i>
+                            <i class="fa fa-star f3" aria-hidden="true"></i>
+                            <i class="fa fa-star f3" aria-hidden="true"></i>
+                        </div> -->
+                        <!-- <p>
+                            4 reviews
+                        </p> -->
+                        <div class="propular_rate">
+                                
+                            <div class="cont">
+                                <div class="stars popularStarRating">
+                                    <ngx-star-rating [(ngModel)]="averageRating" [disabled] ="true"></ngx-star-rating>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                            <ul class="str-rating">
+                                <div>
+                                <li *ngIf="averageRating==5">
+                                    <div class="for-star">
+                                       5 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                      <div class="for-prt">
+                                        100%
+                                      </div>
+                                </li>
+                                <li *ngIf="averageRating!=5">
+                                    <div class="for-star">
+                                       5 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                      </div>
+                                      <div class="for-prt">
+                                        0%
+                                      </div>
+                                </li>
+                                </div>
+
+
+                                <div>
+                                    <li *ngIf="averageRating==4">
+                                        <div class="for-star">
+                                           4 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            80%
+                                          </div>
+                                    </li>
+                                    <li *ngIf="averageRating!=4">
+                                        <div class="for-star">
+                                           4 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            0%
+                                          </div>
+                                    </li>
+                                </div>
+
+                                <div>
+                                    <li *ngIf="averageRating==3">
+                                        <div class="for-star">
+                                           3 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            60%
+                                          </div>
+                                    </li>
+                                    <li *ngIf="averageRating!=3">
+                                        <div class="for-star">
+                                           3 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            0%
+                                          </div>
+                                    </li>
+                                </div>
+
+                                <div>
+                                    <li *ngIf="averageRating==2">
+                                        <div class="for-star">
+                                           2 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            40%
+                                          </div>
+                                    </li>
+                                    <li *ngIf="averageRating!=2">
+                                        <div class="for-star">
+                                           2 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            0%
+                                          </div>
+                                    </li>
+                                </div>
+
+                                <div>
+                                    <li *ngIf="averageRating==1">
+                                        <div class="for-star">
+                                           1 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            20%
+                                          </div>
+                                    </li>
+                                    <li *ngIf="averageRating!=1">
+                                        <div class="for-star">
+                                           1 <i class="fa fa-star f3" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                          </div>
+                                          <div class="for-prt">
+                                            0%
+                                          </div>
+                                    </li>
+                                </div>
+                           </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-4">
+                <h4 class="mb-2 service-title">
+                    FAQs
+                </h4>
+                <div *ngFor="let item of providerData.faqmodel" class="mb-4">
+                <h5 class="mb-2"><strong>{{item.question}}</strong></h5>
+                <p>
+                    {{item.answer}}
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

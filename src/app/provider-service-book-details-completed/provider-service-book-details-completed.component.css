@@ -1,0 +1,13 @@
+.pc-textarea{
+    padding: 0 25px 25px 25px;
+}
+.pc-textarea .form-control{
+    font-size: 15px;
+}
+.pc-textarea label{
+    margin-bottom: 15px;
+}
+.pc-textarea label span img{
+    display: inline-block;
+    vertical-align: middle;
+}

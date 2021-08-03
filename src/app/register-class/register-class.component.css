@@ -1,0 +1,29 @@
+.Experties{
+    text-align: left;
+
+}
+.Experties .form-check.form-check-inline {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.Experties .form-check.form-check-inline  label{
+    
+    margin: 12px 12px 12px 0px;
+}
+
+.radio-item {
+    font-size: 15px;
+    margin-right: 12px;
+    line-height: 30px;
+}
+.frm-chek-now{
+    position: absolute;
+    left: 0;
+    height: 22px;
+    width: 100%;
+}
+
+checkbox{
+    margin-left: 1rem;
+}

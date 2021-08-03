@@ -1,0 +1,21 @@
+.offer-price{
+    font-size: 48px;
+    font-weight: 500;
+    color: #22A6DE;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: normal;
+    display: block;
+}
+.offer-price-block .gift-box-icon{
+    background-image: url('../../assets/images/wallet-icon.png');
+}
+.offer-price-block {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 767px){
+    .offer-price{
+        font-size: 28px;
+    }
+}
