@@ -97,6 +97,7 @@ export class HeaderComponent implements OnInit {
         this.ProviderDetails();
       }
     }
+    
     this.service.categorylisting().subscribe(
       (data) => {
         console.log('category',data);
