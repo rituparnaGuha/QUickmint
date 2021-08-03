@@ -122,7 +122,8 @@
                         <tr *ngFor="let Time of [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]">
                             <td class="align-middle">{{Time}}:00</td>
                             <td *ngFor="let day of profileDetailsForm.get('schedule').controls; let i = index">
-                                <input type="checkbox" (change)="consol(day, Time, i)" > <span class="schedule-add"></span>
+                                <input type="checkbox" (change)="consol(day, Time, i)"
+                                    [checked]="scheduleIncludes(day, Time, i) ? true : false"> <span class="schedule-add"></span>
                             </td>
                         </tr>
                     </tbody>

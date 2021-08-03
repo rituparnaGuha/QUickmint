@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { WebserviceService } from '../services/webservice.service';
@@ -13,6 +13,7 @@ import { formatDate } from '@angular/common';
 })
 export class RegisterClassComponent implements OnInit {
   classForm: any;
+  scheduleForm: any;
   classFormSubmitted = false;
   id = localStorage.getItem('userId');
   title:string;
@@ -38,33 +39,6 @@ export class RegisterClassComponent implements OnInit {
   kidCategory1:any;
   AdultsCategory1:any;
 
-  // public adultsCategory:any = [
-  // {item:'English'},
-  // {item:'Maths'},
-  // {item:'Social Studies'},
-  // {item:'Science'},
-  // {item:'World Languages'},
-  // {item:'Games'},
-  // ];
-
-  // public kidsCategory:any = [
-  //   {item:'Art and Painting'},
-  //   {item:'Dance'},
-  //   {item:'Music'},
-  //   {item:'Business'},
-  //   {item:'Tech'},
-  //   {item:'Craft'},
-  // ];
-
-
-  // public checks: Array<any> = [
-  //   { value: 'Maths' },
-  //   { value: 'Science' },
-  //   { value: 'Social science' },
-  //   { value: 'Biology' },
-  //   { value: 'Physics' },
-  //   { value: 'Chemistry' },
-  // ];
   constructor(
     private formBuilder: FormBuilder,
     private service: WebserviceService,
@@ -75,7 +49,9 @@ export class RegisterClassComponent implements OnInit {
 
   ngOnInit(): void {
     this.classForm = this.newForm();
+    this.scheduleForm = this.newScheduleForm()
     this.getCategory();
+    this.getProfileDetails()
   }
 
   radioChange(){
@@ -290,6 +266,37 @@ save() {
   console.log('exp',this.expertise)
 }
 
+newScheduleForm() {
+  return this.formBuilder.group({
+    startDate: [moment(new Date()).format('DD/MM/YYYY'), [Validators.required]],
+    endDate: ['', [Validators.required]],
+    schedule: new FormArray([
+      new FormControl([]),
+      new FormControl([]),
+      new FormControl([]),
+      new FormControl([]),
+      new FormControl([]),
+      new FormControl([]),
+      new FormControl([]),
+    ]),
+  });
+}
 
+getProfileDetails() {
+  this.service.getworkerdetails().subscribe((resp: any) => {
+     console.log('schedule: ', resp.data.schedule[0]);
+
+     this.startDate = resp.data.schedule[0].start_date   
+    // this.scheduleForm.controls['startDate'].setValue(
+    //   resp.data.schedule[0].start_date
+    // );
+
+    this.scheduleForm.get('schedule').setValue(
+      resp.data.schedule[0].schedule
+    );
+    // console.log('profileDetailsForm: ', this.profileDetailsForm.get('schedule'));
+
+  });
+}
 
 }
